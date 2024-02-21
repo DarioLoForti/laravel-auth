@@ -24,6 +24,8 @@
                                 <td>{{ $project->autore }}</td>
                                 <td>{{ Str::limit($project->descrizione, 20, '...') }}</td>
                                 <td>{{ $project->fine_progetto }}</td>
+                                <td><a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                        class="btn btn-sm btn-primary">Dettaglio</a></td>
                             </tr>
                         @endforeach
                 </table>
