@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('autore', 50);
             $table->text('descrizione');
-            $table->data('fine_progetto');
+            $table->string('fine_progetto');
             $table->string('cover_image')->nullable();
             $table->timestamps();
         });
