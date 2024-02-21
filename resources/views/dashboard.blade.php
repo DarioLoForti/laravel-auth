@@ -19,6 +19,14 @@
 
                         {{ __('You are logged in!') }}
                     </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="{{ route('admin.projects.index') }}" class="btn btn-sm btn-primary">Vedi
+                                    progetti</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
