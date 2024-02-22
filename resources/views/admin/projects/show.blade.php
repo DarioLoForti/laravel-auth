@@ -1,46 +1,24 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-12">
-                {{-- <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Titolo</th>
-                            <th>Slug</th>
-                            <th>Autore</th>
-                            <th>Descrizione</th>
-                            <th>Fine Progetto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ $project->id }}</td>
-                            <td>{{ $project->titolo }}</td>
-                            <td>{{ $project->slug }}</td>
-                            <td>{{ $project->autore }}</td>
-                            <td>{{ Str::limit($project->descrizione, 20, '...') }}</td>
-                            <td>{{ $project->fine_progetto }}</td>
-                        </tr>
-                </table>
-                </tbody> --}}
-
                 <div class="card text-center">
-                    <div class="card-header">
-                        Project
+                    <div class="card-header bg-danger">
+                        <h1>Project</h1>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Titolo: {{ $project->titolo }}</h5>
+                        <h3 class="card-title">Titolo: {{ $project->titolo }}</h3>
                         <p class="card-text">{{ $project->descrizione }}</p>
                         <h5>Autore: {{ $project->autore }}</h5>
                         <h5>Daata fine progetto:_ {{ $project->fine_progetto }}</h5>
-                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Torna ai post</a>
+                        <a href="" class="btn btn-warning mt-4 float-start">Modifica
+                            Progetto</a>
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary mt-4 float-end">Torna ai
+                            post</a>
                     </div>
-                    <div class="card-footer text-body-secondary">
-                        2 days ago
-                    </div>
+
                 </div>
             </div>
         </div>
