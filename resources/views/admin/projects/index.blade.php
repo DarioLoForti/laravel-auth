@@ -80,7 +80,7 @@
                                                     <a href="{{ route('admin.projects.edit', $project->id) }}"
                                                         class="btn btn-sm btn-warning ms-2">Modifica</a>
                                                 </div>
-                                                <form
+                                                {{-- <form
                                                     action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
                                                     method="post"
                                                     onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?')">
@@ -88,7 +88,10 @@
                                                     @method('DELETE')
                                                     <button type="submit"
                                                         class="btn btn-sm btn-danger mt-3">Elimina</button>
-                                                </form>
+                                                </form> --}}
+                                                <button class="btn btn-sm btn-danger mt-3" data-bs-toggle="modal"
+                                                    data-bs-target="#modal_delete_{{ $project->id }}">Elimina</button>
+                                                @include('admin.projects.modal')
                                             </div>
                                         </div>
                                     </div>
