@@ -74,8 +74,21 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $project->titolo }}</h5>
                                                 <p class="card-text">{{ Str::limit($project->descrizione, 30, '...') }}</p>
-                                                <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                                    class="btn btn-primary">Dettagli</a>
+                                                <div class="d-flex mt-4">
+                                                    <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                                        class="btn btn-sm btn-primary">Dettagli</a>
+                                                    <a href="{{ route('admin.projects.edit', $project->id) }}"
+                                                        class="btn btn-sm btn-warning ms-2">Modifica</a>
+                                                </div>
+                                                <form
+                                                    action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                                    method="post"
+                                                    onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-danger mt-3">Elimina</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

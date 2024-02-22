@@ -13,13 +13,21 @@
                         <p class="card-text">{{ $project->descrizione }}</p>
                         <div class="d-flex justify-content-around">
                             <h5>Autore: {{ $project->autore }}</h5>
-                            <h5>Daata fine progetto: {{ $project->fine_progetto }}</h5>
+                            <h5>Data fine progetto: {{ $project->fine_progetto }}</h5>
                         </div>
-                        <a href="{{ route('admin.projects.edit', $project->id) }}"
-                            class="btn btn-warning mt-4 float-start">Modifica
-                            Progetto</a>
-                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary mt-4 float-end">Torna ai
-                            post</a>
+                        <div class="d-flex justify-content-around mt-5">
+                            <a href="{{ route('admin.projects.edit', $project->id) }}"
+                                class="btn btn-warning  float-start">Modifica
+                                Progetto</a>
+                            <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="post"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger ">Elimina</button>
+                            </form>
+                            <a href="{{ route('admin.projects.index') }}" class="btn btn-primary float-end">Torna ai
+                                post</a>
+                        </div>
                     </div>
 
                 </div>

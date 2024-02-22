@@ -82,7 +82,7 @@
                                         @endif
 
                                         {{ __('Ti sei loggato con successo!') }}
-                                        <h3 class="mt-3">Benvenuto: </h3>
+                                        <h1 class="mt-3 text-center">Benvenuto... </h1>
                                     </div>
                                     <div class="container">
                                         <div class="row">
