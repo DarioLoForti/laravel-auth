@@ -30,7 +30,7 @@
                                                 <span class="d-none d-sm-inline">Project</span></a>
                                         </li>
                                         <li class="w-100">
-                                            <a href="" class="nav-link px-0">
+                                            <a href="{{ route('admin.projects.create') }}" class="nav-link px-0">
                                                 <span class="d-none d-sm-inline">Create New Project</span></a>
                                         </li>
                                         </li>

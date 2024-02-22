@@ -11,8 +11,10 @@
                     <div class="card-body">
                         <h3 class="card-title">Titolo: {{ $project->titolo }}</h3>
                         <p class="card-text">{{ $project->descrizione }}</p>
-                        <h5>Autore: {{ $project->autore }}</h5>
-                        <h5>Daata fine progetto:_ {{ $project->fine_progetto }}</h5>
+                        <div class="d-flex justify-content-around">
+                            <h5>Autore: {{ $project->autore }}</h5>
+                            <h5>Daata fine progetto: {{ $project->fine_progetto }}</h5>
+                        </div>
                         <a href="" class="btn btn-warning mt-4 float-start">Modifica
                             Progetto</a>
                         <a href="{{ route('admin.projects.index') }}" class="btn btn-primary mt-4 float-end">Torna ai
