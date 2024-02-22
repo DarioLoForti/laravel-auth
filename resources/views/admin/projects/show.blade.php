@@ -15,7 +15,8 @@
                             <h5>Autore: {{ $project->autore }}</h5>
                             <h5>Daata fine progetto: {{ $project->fine_progetto }}</h5>
                         </div>
-                        <a href="" class="btn btn-warning mt-4 float-start">Modifica
+                        <a href="{{ route('admin.projects.edit', $project->id) }}"
+                            class="btn btn-warning mt-4 float-start">Modifica
                             Progetto</a>
                         <a href="{{ route('admin.projects.index') }}" class="btn btn-primary mt-4 float-end">Torna ai
                             post</a>
