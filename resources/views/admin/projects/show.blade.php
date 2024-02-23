@@ -19,8 +19,11 @@
                             <a href="{{ route('admin.projects.edit', $project->id) }}"
                                 class="btn btn-warning  float-start">Modifica
                                 Progetto</a>
-                            <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="post"
-                                @csrf @method('DELETE') <button type="submit" class="btn btn-danger ">Elimina</button>
+                            <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Elimina</button>
                             </form>
                             <a href="{{ route('admin.projects.index') }}" class="btn btn-primary float-end">Torna ai
                                 post</a>
