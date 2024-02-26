@@ -30,6 +30,13 @@
                         @enderror
                     </div>
                     <div class="form-group my-3">
+                        @if ($project->cover_image != null)
+                            <div class="my-3">
+                                <img src="{{ asset('/storage/' . $project->cvover_image) }}" alt="{{ $project->titolo }}">
+                            </div>
+                        @else
+                            <h5 class="text-white">Immagine di copertina non inserita</h5>
+                        @endif
                         <label for="cover_image" class="control-label text-white">Immagine di copertina</label>
                         <input type="file" name="cover_image" id="cover_image"
                             class="form-control @error('titolo') is-invalid @enderror" value="{{ old('cover_image') }}">

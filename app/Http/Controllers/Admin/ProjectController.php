@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -43,12 +44,14 @@ class ProjectController extends Controller
         $form_data = $request->all();
 
         $project = new Project();
-
-        $project->fill($form_data);
+        if ($request->hasFile('cover_image')) {
+            $path = Storage::disk('public')->put('projects_image', $form_data['cover_image']);
+            $form_data['cover_image'] = $path;
+        }
 
         $slug = Str::slug($form_data['titolo'], '-');
         $project->slug = $slug;
-
+        $project->fill($form_data);
         $project->save();
 
         return redirect()->route('admin.projects.index');
@@ -86,6 +89,13 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
+        if ($request->hasFile('cover_image')) {
+            if ($project->cover_image != null) {
+                Storage::disk('public')->delete($project->cover_image);
+            }
+            $path = Storage::disk('public')->put('projects_image', $form_data['cover_image']);
+            $form_data['cover_image'] = $path;
+        }
 
         $slug = Str::slug($form_data['titolo'], '-');
         $project->slug = $slug;

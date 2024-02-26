@@ -8,6 +8,11 @@
                     <div class="card-header bg-danger">
                         <h1>Project</h1>
                     </div>
+                    <div class="card-img">
+                        <img src="{{ $project->cover_image !== null ? $project->cover_image : '/img/folder.png' }} class="card-img-top"
+                            alt="{{ $project->titolo }}">
+
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Titolo: {{ $project->titolo }}</h3>
                         <p class="card-text">{{ $project->descrizione }}</p>
@@ -15,6 +20,7 @@
                             <h5>Autore: {{ $project->autore }}</h5>
                             <h5>Data fine progetto: {{ $project->fine_progetto }}</h5>
                         </div>
+
                         <div class="d-flex justify-content-around mt-5">
                             <a href="{{ route('admin.projects.edit', $project->id) }}"
                                 class="btn btn-warning  float-start">Modifica
