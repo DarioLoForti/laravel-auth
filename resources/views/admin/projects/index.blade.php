@@ -69,18 +69,14 @@
                                 @foreach ($projects as $project)
                                     <div class="col-2 py-5">
                                         <div class="card text-center">
-                                            <img src="{{ $project->cover_image !== null ? $project->cover_image : '/img/folder.png' }}
-                                            class="card-img-top"
-                                                alt="{{ $project->titolo }}">
-                                            {{-- @if ($project->cover_image !== null)
-                                                <img src="{{ asset('/storage/' . $project->cover_image) }}
-                                                class="card-img-top"
-                                                    alt="{{ $project->titolo }}">
+                                            @if ($project->cover_image != null)
+                                                <div class="my-3">
+                                                    <img src="{{ asset('/storage/' . $project->cover_image) }}"
+                                                        alt="{{ $project->titolo }}">
+                                                </div>
                                             @else
-                                                <img src="{{ asset('/img/pictures_folder_18876.png') }}
-                                                class="card-img-top"
-                                                    alt="{{ $project->titolo }}">
-                                            @endif --}}
+                                                <img src="{{ asset('/img/folder.png') }}" alt="{{ $project->titolo }}">
+                                            @endif
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $project->titolo }}</h5>
                                                 <p class="card-text">{{ Str::limit($project->descrizione, 30, '...') }}</p>

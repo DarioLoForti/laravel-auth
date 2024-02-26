@@ -32,10 +32,12 @@
                     <div class="form-group my-3">
                         @if ($project->cover_image != null)
                             <div class="my-3">
-                                <img src="{{ asset('/storage/' . $project->cvover_image) }}" alt="{{ $project->titolo }}">
+                                <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="{{ $project->titolo }}">
                             </div>
                         @else
-                            <h5 class="text-white">Immagine di copertina non inserita</h5>
+                            <div class="my-3">
+                                <img src="{{ asset('/img/folder.png') }}" alt="{{ $project->titolo }}" width="100px">
+                            </div>
                         @endif
                         <label for="cover_image" class="control-label text-white">Immagine di copertina</label>
                         <input type="file" name="cover_image" id="cover_image"

@@ -4,13 +4,18 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
-                <div class="card text-center">
+                <div class="card text-center card-show">
                     <div class="card-header bg-danger">
                         <h1>Project</h1>
                     </div>
                     <div class="card-img">
-                        <img src="{{ $project->cover_image !== null ? $project->cover_image : '/img/folder.png' }} class="card-img-top"
-                            alt="{{ $project->titolo }}">
+                        @if ($project->cover_image != null)
+                            <div class="my-3">
+                                <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="{{ $project->titolo }}">
+                            </div>
+                        @else
+                            <img src="{{ asset('/img/folder.png') }}" alt="{{ $project->titolo }}">
+                        @endif
 
                     </div>
                     <div class="card-body">
