@@ -7,7 +7,7 @@
                 <h1 class="text-center text-white mt-5">Inserisci nuovo progetto</h1>
             </div>
             <div class="col-12">
-                <form class="mt-5" action="{{ route('admin.projects.store') }}" method="post">
+                <form class="mt-5" action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group my-3">
                         <label for="titolo" class="control-label text-white">Titolo</label>
@@ -22,6 +22,14 @@
                         <input type="text" name="autore" id="autore" placeholder="Inserisci il nome del autore"
                             class="form-control @error('autore') is-invalid @enderror" value="{{ old('autore') }}" required>
                         @error('autore')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="cover_image" class="control-label text-white">Immagine di copertina</label>
+                        <input type="file" name="cover_image" id="cover_image"
+                            class="form-control @error('titolo') is-invalid @enderror" value="{{ old('cover_image') }}">
+                        @error('cover_image')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
