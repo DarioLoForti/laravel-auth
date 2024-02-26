@@ -44,6 +44,7 @@ class ProjectController extends Controller
         $form_data = $request->all();
 
         $project = new Project();
+
         if ($request->hasFile('cover_image')) {
             $path = Storage::disk('public')->put('projects_image', $form_data['cover_image']);
             $form_data['cover_image'] = $path;
@@ -89,6 +90,7 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
+
         if ($request->hasFile('cover_image')) {
             if ($project->cover_image != null) {
                 Storage::disk('public')->delete($project->cover_image);
